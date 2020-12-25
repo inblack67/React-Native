@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Button, ScrollView, StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, GestureResponderEvent } from 'react-native';
+import MyAlert from './components/MyAlert';
+import MyInput from './components/MyInput';
 
 export default function App ()
 {
@@ -54,6 +56,8 @@ export default function App ()
 
   return (
     <View style={ styles.container }>
+      <MyAlert />
+      <MyInput />
       <View style={ styles.content }>
         <Text>
           <Button onPress={ handlePress } title='Change' />
@@ -91,7 +95,7 @@ export default function App ()
 
 const styles = StyleSheet.create( {
   container: {
-    maxWidth: '968px',
+    maxWidth: 968,
     overflow: 'hidden',
     margin: 'auto',
   },
