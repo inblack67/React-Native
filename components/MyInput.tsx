@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, TextInput, View, StyleSheet, Text, ScrollView, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 
 interface IForm
 {
@@ -60,6 +61,7 @@ const MyInput = () =>
                     <Text>Password</Text>
                     <TextInput style={ styles.input } onChangeText={ handleChange( 'password' ) } />
                     <Button title='Submit' color='red' onPress={ handleSubmit } disabled={ isFormInvalid } />
+                    <MaterialIcons name="delete" size={ 24 } color='red' />
                 </View>
             </ScrollView>
         </TouchableWithoutFeedback>
