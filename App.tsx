@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View, FlatList } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View, FlatList, TouchableOpacity, GestureResponderEvent } from 'react-native';
 
 export default function App ()
 {
@@ -47,6 +47,11 @@ export default function App ()
     setAge( +val );
   };
 
+  const handlePress2 = ( id: number ) => ( _: GestureResponderEvent ) =>
+  {
+    setPeeps( prevPeeps => prevPeeps.filter( peep => peep.id !== id ) );
+  };
+
   return (
     <View style={ styles.container }>
       <View style={ styles.content }>
@@ -67,9 +72,11 @@ export default function App ()
         keyExtractor={ item => item.id.toString() }
         data={ peeps }
         renderItem={ ( { item } ) => (
-          <Text style={ styles.list }>
-            {item.name }
-          </Text>
+          <TouchableOpacity onPress={ handlePress2( item.id ) }>
+            <Text style={ styles.list }>
+              { item.name }
+            </Text>
+          </TouchableOpacity>
         ) }
       />
       {/* <ScrollView>
